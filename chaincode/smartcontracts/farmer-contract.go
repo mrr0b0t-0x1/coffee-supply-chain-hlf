@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"coffee-supply-chain-hlf/chaincode/models"
-	"coffee-supply-chain-hlf/chaincode/utils"
+	"github.com/coffee-supply-chain-hlf/chaincode/models"
+	"github.com/coffee-supply-chain-hlf/chaincode/utils"
 
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )

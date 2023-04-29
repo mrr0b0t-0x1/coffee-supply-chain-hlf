@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"coffee-supply-chain-hlf/chaincode/smartcontracts"
+	"github.com/coffee-supply-chain-hlf/chaincode/smartcontracts"
 
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )

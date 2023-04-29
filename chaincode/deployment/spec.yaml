@@ -2,9 +2,15 @@ fabric:
   cas:
   - "ca1.farmer"
   - "ca1.processor"
+  - "ca1.roaster"
+  - "ca1.supplier"
+  - "ca1.retailer"
   peers: 
   - "peer0.farmer"
   - "peer0.processor"
+  - "peer0.roaster"
+  - "peer0.supplier"
+  - "peer0.retailer"
   orderers:
   - "orderer0.orderer"
   settings:

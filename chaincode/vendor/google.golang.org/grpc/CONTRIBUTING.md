@@ -1,8 +1,6 @@
 # How to contribute
 
-We definitely welcome your patches and contributions to gRPC! Please read the gRPC
-organization's [governance rules](https://github.com/grpc/grpc-community/blob/master/governance.md)
-and [contribution guidelines](https://github.com/grpc/grpc-community/blob/master/CONTRIBUTING.md) before proceeding.
+We definitely welcome your patches and contributions to gRPC!
 
 If you are new to github, please start by reading [Pull Request howto](https://help.github.com/articles/about-pull-requests/)
 
@@ -53,8 +51,10 @@ How to get your contributions merged smoothly and quickly.
 - **All tests need to be passing** before your change can be merged. We
   recommend you **run tests locally** before creating your PR to catch breakages
   early on.
-  - `VET_SKIP_PROTO=1 ./vet.sh` to catch vet errors
-  - `go test -cpu 1,4 -timeout 7m ./...` to run the tests
-  - `go test -race -cpu 1,4 -timeout 7m ./...` to run tests in race mode
+  - `make all` to test everything, OR
+  - `make vet` to catch vet errors
+  - `make test` to run the tests
+  - `make testrace` to run tests in race mode
+  - optional `make testappengine` to run tests with appengine
 
 - Exceptions to the rules can be made if there's a compelling reason for doing so.
