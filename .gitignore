@@ -3,12 +3,11 @@
 **/*.env
 **/logs/*
 **/network-config/*
-**/userWallets/
 **/certs/*
 **/*.pem
 **/*.cer
 **/*.crt
-**/*.tar
+**/*.id
 **/*.tar.*
 **/package-lock.json
 hlf-network/*
