@@ -3,7 +3,6 @@
 **/*.env
 **/logs/*
 **/network-config/*
-**/certs/*
 **/*.pem
 **/*.cer
 **/*.crt

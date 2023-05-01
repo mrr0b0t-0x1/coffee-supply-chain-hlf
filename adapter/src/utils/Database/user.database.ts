@@ -1,6 +1,6 @@
 import * as db from "./dbClient";
 import { Client } from "cassandra-driver";
-import * as constants from "../../utils/constants";
+import * as constants from "../constants";
 
 const GET_USER = "SELECT * FROM user WHERE username = ? ALLOW FILTERING";
 

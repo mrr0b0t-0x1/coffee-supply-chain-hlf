@@ -56,7 +56,7 @@ export const getBatchById = async (
         );
 
         return HTTPResponseUtils.okResponse(
-          batchId,
+          res.toString(),
           "Fetched batch data with id " +
             batchId +
             " from ledger successfully!"

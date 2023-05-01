@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd ../adapter
+cd ..
+ls -la
+exit
+cd adapter
 
 printf "\nCompiling code...\n"
 npm run build
