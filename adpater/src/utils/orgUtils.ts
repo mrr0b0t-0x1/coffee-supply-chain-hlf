@@ -31,7 +31,5 @@ export const getEndorsingOrgs = () => {
     constants.RETAILER_ORG_NAME
   ];
 
-  const endorserBankOrgs: string[] = getRandomOrg(allOrgs, parseInt((allOrgs.length / 2).toString()));
-
-  return endorserBankOrgs;
+  return allOrgs;
 }

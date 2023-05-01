@@ -31,7 +31,7 @@ const server = app.listen(app.get("port"), async () => {
   init();
 
   // Wait for admin IDs to get generated
-  setTimeout(configGenerated, 20);
+  setTimeout(configGenerated, 30);
 });
 
 export default server;

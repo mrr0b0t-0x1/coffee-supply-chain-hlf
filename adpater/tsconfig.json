@@ -7,7 +7,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": "adapter",
+    "baseUrl": "src",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "paths": {
@@ -18,7 +18,7 @@
     "resolveJsonModule": true
   },
   "include": [
-    "adapter/**/*",
+    "src/**/*",
     "typings/*"
   ]
 }

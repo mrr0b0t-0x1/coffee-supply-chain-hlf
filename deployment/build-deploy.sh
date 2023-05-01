@@ -1,8 +1,6 @@
-#! /bin/bash
+#!/bin/bash
 
-ADAPTER_PATH=${PWD}/../adapter
-
-cd ${ADAPTER_PATH}
+cd ../adapter
 
 printf "\nCompiling code...\n"
 npm run build

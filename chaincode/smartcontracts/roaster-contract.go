@@ -34,6 +34,8 @@ func (roc *RoasterContract) RoastBatch(ctx contractapi.TransactionContextInterfa
 		return false, fmt.Errorf("failed to unmarshal JSON: %s", err)
 	}
 
+	batch.TxnID = txnID
+
 	err = utils.PutState(ctx, batchID, batch)
 	if err != nil {
 		return false, fmt.Errorf("error while creating batch. BatchId: %s, error: %w", batchID, err)
@@ -53,4 +55,22 @@ func (roc *RoasterContract) RoastBatch(ctx contractapi.TransactionContextInterfa
 	utils.LogMessage("RoasterContract.RoastBatch", "Stored roasted batch data on ledger", batchID, ctx.GetStub().GetTxID())
 
 	return true, nil
+}
+
+func (fc *FarmerContract) QueryRoastedBatchById(
+	ctx contractapi.TransactionContextInterface,
+	batchId string,
+) (*models.RoasterBatch, error) {
+	batchStr, err := ctx.GetStub().GetState(batchId)
+	if err != nil {
+		return nil, fmt.Errorf("error while getting state, %w", err)
+	}
+
+	var roastBatch *models.RoasterBatch
+	err = json.Unmarshal(batchStr, &roastBatch)
+	if err != nil {
+		return nil, fmt.Errorf("error while unmarshalling data for batch id:%s, Error:%w", batchId, err)
+	}
+
+	return roastBatch, nil
 }

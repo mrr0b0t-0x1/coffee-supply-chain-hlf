@@ -6,18 +6,12 @@ type FarmerBatch struct {
 	BatchStatus         string  `json:"batchStatus"`
 	SeedType            string  `json:"seedType"`
 	PlantationDate      string  `json:"plantationDate"`
-	HarvestDate         string  `json:"harvestDate"`
 	FarmerName          string  `json:"farmerName"`
-	FarmerAddress       string  `json:"farmerAddress"`
-	FarmerContact       int     `json:"farmerContact"`
 	GrowingChargePerKg  float64 `json:"growingChargePerKg"`
 	BatchGenerationDate string  `json:"batchGenerationDate"`
 	BatchWeight         float64 `json:"batchWeight"`
 	BatchPrice          float64 `json:"batchPrice"`
 	BatchSellDate       string  `json:"batchSellDate"`
-	ProcessorName       string  `json:"processorName"`
-	ProcessorAddress    string  `json:"processorAddress"`
-	ProcessorContact    int     `json:"processorContact"`
 }
 
 type ProcessorBatch struct {
@@ -27,8 +21,6 @@ type ProcessorBatch struct {
 	ProcessingType        string  `json:"processingType"`
 	DateOfTransport       string  `json:"dateOfTransport"`
 	FarmerName            string  `json:"farmerName"`
-	FarmerAddress         string  `json:"farmerAddress"`
-	FarmerContact         int     `json:"farmerContact"`
 	FarmerBatchID         string  `json:"farmerBatchId"`
 	BatchPurchaseDate     string  `json:"batchPurchaseDate"`
 	BatchPurchasePrice    float64 `json:"batchPurchasePrice"`
@@ -41,9 +33,6 @@ type ProcessorBatch struct {
 	ProcessedBatchPrice   float64 `json:"processedBatchPrice"`
 	ProcessedBatchWeight  float64 `json:"processedBatchWeight"`
 	BatchSellDate         string  `json:"batchSellDate"`
-	RoasterName           string  `json:"roasterName"`
-	RoasterAddress        string  `json:"roasterAddress"`
-	RoasterContact        int     `json:"roasterContact"`
 }
 
 type RoasterBatch struct {
@@ -53,8 +42,6 @@ type RoasterBatch struct {
 	RoasingType         string  `json:"roasingType"`
 	DateOfTransport     string  `json:"dateOfTransport"`
 	ProcessorName       string  `json:"processorName"`
-	ProcessorAddress    string  `json:"processorAddress"`
-	ProcessorContact    int     `json:"processorContact"`
 	ProcessorBatchID    string  `json:"processorBatchId"`
 	BatchPurchaseDate   string  `json:"batchPurchaseDate"`
 	BatchPurchasePrice  float64 `json:"batchPurchasePrice"`
@@ -68,9 +55,6 @@ type RoasterBatch struct {
 	RoastedBatchPrice   float64 `json:"roastedBatchPrice"`
 	RoastedBatchWeight  float64 `json:"roastedBatchWeight"`
 	BatchSellDate       string  `json:"batchSellDate"`
-	SupplierName        string  `json:"supplierName"`
-	SupplierAddress     string  `json:"supplierAddress"`
-	SupplierContact     int     `json:"supplierContact"`
 }
 
 type SupplierBatch struct {
@@ -79,8 +63,6 @@ type SupplierBatch struct {
 	BatchStatus          string  `json:"batchStatus"`
 	DateOfTransport      string  `json:"dateOfTransport"`
 	RoasterName          string  `json:"roasterName"`
-	RoasterAddress       string  `json:"roasterAddress"`
-	RoasterContact       int     `json:"roasterContact"`
 	RoasterBatchID       string  `json:"roasterBatchId"`
 	BatchPurchaseDate    string  `json:"batchPurchaseDate"`
 	BatchPurchasePrice   float64 `json:"batchPurchasePrice"`
@@ -96,9 +78,6 @@ type SupplierBatch struct {
 	ShippingChargePerKg  float64 `json:"shippingChargePerKg"`
 	ShippingBatchPrice   float64 `json:"shippingBatchPrice"`
 	BatchSellDate        string  `json:"batchSellDate"`
-	RetailerName         string  `json:"retailerName"`
-	RetailerAddress      string  `json:"retailerAddress"`
-	RetailerContact      int     `json:"retailerContact"`
 }
 
 type RetailerBatch struct {
@@ -107,8 +86,6 @@ type RetailerBatch struct {
 	BatchStatus             string  `json:"batchStatus"`
 	DateOfShipping          string  `json:"dateOfShipping"`
 	SupplierName            string  `json:"supplierName"`
-	SupplierAddress         string  `json:"supplierAddress"`
-	SupplierContact         int     `json:"supplierContact"`
 	SupplierBatchID         string  `json:"supplierBatchId"`
 	BatchPurchaseDate       string  `json:"batchPurchaseDate"`
 	BatchPurchasePrice      float64 `json:"batchPurchasePrice"`

@@ -6,7 +6,7 @@ services:
         env_file:
             - ../${ORG_ENV_FILE}
         working_dir: /usr/app
-        command: npm run start-api
+        command: npm run start
         volumes:
             - "../certs:/usr/app/certs"
             - "../wallet:/usr/app/wallet"

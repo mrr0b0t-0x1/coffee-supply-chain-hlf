@@ -6,7 +6,7 @@ import * as auth from "../middleware/auth.middleware";
 export const userRouter = express.Router();
 
 userRouter.post("/register", async (req: Request, res: Response) => {
-  console.log(
+  console.info(
     `Request received for register :: Body: ${JSON.stringify(req.body)}`
   );
 
@@ -39,7 +39,7 @@ userRouter.post("/register", async (req: Request, res: Response) => {
 });
 
 userRouter.post("/login", async (req: Request, res: Response) => {
-  console.log(
+  console.info(
     `Request received for login :: Body: ${JSON.stringify(req.body)}`
   );
 

@@ -1,5 +1,6 @@
 import * as db from "./dbClient";
 import { Client } from "cassandra-driver";
+import * as constants from "../../utils/constants";
 
 const GET_USER = "SELECT * FROM user WHERE username = ? ALLOW FILTERING";
 
@@ -17,7 +18,7 @@ const GET_MAX_USER_ID = "SELECT MAX(id) as userId FROM USER";
 
 export const getUser = async (dbClient: Client, username: string) => {
   const result = await db.executeQuery(dbClient, GET_USER, [username]);
-  return result.rows[0];
+  return result.rows;
 };
 
 export const getAllUsers = async (dbClient: Client, username: string) => {
@@ -27,7 +28,7 @@ export const getAllUsers = async (dbClient: Client, username: string) => {
 
 export const getRole = async (dbClient: Client, roleId: string) => {
   const result = await db.executeQuery(dbClient, GET_ROLE, [roleId]);
-  return result.rows[0];
+  return result.rows;
 };
 
 export const getRoles = async (dbClient: Client, userId: string) => {
@@ -49,7 +50,7 @@ export const registerUser = async (
   address: string,
   role: string
 ) => {
-  console.log(`User DB :: Inserting user details for ${username}`);
+  console.info(`User DB :: Inserting user details for ${username}`);
 
   try {
     await db.executeQuery(dbClient, REGISTER_USER, [
@@ -59,16 +60,17 @@ export const registerUser = async (
       hashedPassword,
       address,
       role,
+      constants.USER_STATUS_ACTIVE
     ]);
 
-    console.log(`User DB :: Inserted user details for ${username}`);
+    console.info(`User DB :: Inserted user details for ${username}`);
 
     return {
       status: "success",
       message: `User ${username} has been registered successfully`,
     };
   } catch (e) {
-    console.log(
+    console.info(
       `User DB :: Failed to insert user details for ${username}: ${e}`
     );
 

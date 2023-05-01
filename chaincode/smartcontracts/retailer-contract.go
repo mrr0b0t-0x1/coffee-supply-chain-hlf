@@ -34,6 +34,8 @@ func (rec *RetailerContract) RetailBatch(ctx contractapi.TransactionContextInter
 		return false, fmt.Errorf("failed to unmarshal JSON: %s", err)
 	}
 
+	batch.TxnID = txnID
+
 	err = utils.PutState(ctx, batchID, batch)
 	if err != nil {
 		return false, fmt.Errorf("error while creating batch. BatchId: %s, error: %w", batchID, err)
@@ -53,4 +55,22 @@ func (rec *RetailerContract) RetailBatch(ctx contractapi.TransactionContextInter
 	utils.LogMessage("RetailerContract.RetailBatch", "Stored retail batch data on ledger", batchID, ctx.GetStub().GetTxID())
 
 	return true, nil
+}
+
+func (fc *FarmerContract) QueryRetailBatchById(
+	ctx contractapi.TransactionContextInterface,
+	batchId string,
+) (*models.RetailerBatch, error) {
+	batchStr, err := ctx.GetStub().GetState(batchId)
+	if err != nil {
+		return nil, fmt.Errorf("error while getting state, %w", err)
+	}
+
+	var retailBatch *models.RetailerBatch
+	err = json.Unmarshal(batchStr, &retailBatch)
+	if err != nil {
+		return nil, fmt.Errorf("error while unmarshalling data for batch id:%s, Error:%w", batchId, err)
+	}
+
+	return retailBatch, nil
 }

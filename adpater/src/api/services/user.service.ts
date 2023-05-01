@@ -47,7 +47,7 @@ export const register = async (registrationDetails: userInterface.User) => {
         salt
       );
 
-      console.log(
+      console.info(
         `Service register :: Registering user ${registrationDetails.username}`
       );
 
@@ -84,7 +84,7 @@ export const register = async (registrationDetails: userInterface.User) => {
       );
     }
   } catch (err) {
-    console.log(
+    console.info(
       `Service register :: Failed to register user with Error: ${err}`
     );
 
@@ -96,7 +96,7 @@ export const register = async (registrationDetails: userInterface.User) => {
 
 export const login = async (userLoginInfo: userInterface.LoginRequest) => {
   try {
-    console.log(
+    console.info(
       `Service login :: User login service for ${userLoginInfo.username}`
     );
 
@@ -109,13 +109,13 @@ export const login = async (userLoginInfo: userInterface.LoginRequest) => {
     }
 
     const userObj: userInterface.User = {
-      id: user.id.toString(),
-      username: user.username,
-      password: user.password,
-      email: user.email,
-      address: user.address,
-      role: user.roles,
-      org: user.org,
+      id: user[0].id.toString(),
+      username: user[0].username,
+      password: user[0].password,
+      email: user[0].email,
+      address: user[0].address,
+      role: user[0].role,
+      org: process.env.ORG_NAME,
     };
 
     const passwordMatched = await bcrypt.compare(
@@ -137,14 +137,14 @@ export const login = async (userLoginInfo: userInterface.LoginRequest) => {
       expiresIn: constants.JWT_EXPIRATION,
     });
 
-    console.log(`Service login :: User ${userObj.username} is logged in`);
+    console.info(`Service login :: User ${userObj.username} is logged in`);
 
     return await HTTPResponseUtils.okResponse({
       token,
       userInfo,
     });
   } catch (err) {
-    console.log(`Service login :: Error while login due to  ${err}`);
+    console.info(`Service login :: Error while login due to  ${err}`);
 
     return HTTPResponseUtils.internalServerErrorResponse(
       "Error while logging in!"

@@ -31,7 +31,10 @@ export const RETAILER_BATCH_TYPE = "retailer";
 
 // HLF Contract Methods
 export const FARMER_CONTRACT_METHOD = "FarmerContract:CreateBatch";
+export const FARMER_QUERY_METHOD = "FarmerContract:QueryGrownBatchById";
 export const PROCESSOR_CONTRACT_METHOD = "ProcessorContract:ProcessBatch";
 export const ROASTER_CONTRACT_METHOD = "RoasterContract:RoastBatch";
 export const SUPPLIER_CONTRACT_METHOD = "SupplierContract:SupplyBatch";
 export const RETAILER_CONTRACT_METHOD = "RetailerContract:RetailBatch";
+
+export const USER_STATUS_ACTIVE = "ACTIVE";

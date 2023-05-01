@@ -54,14 +54,14 @@ const buildCCP = () => {
   const ccpPath = path.resolve(process.env.NETWORK_CONFIG ? process.env.NETWORK_CONFIG : "");
   const fileExists = fs.existsSync(ccpPath);
   if (!fileExists) {
-    console.log(`DLTClient buildCCP :: No such file or directory: ${ccpPath}`);
+    console.info(`DLTClient buildCCP :: No such file or directory: ${ccpPath}`);
 
     throw new Error(`DltClient: no such file or directory: ${ccpPath}`);
   }
   const contents = fs.readFileSync(ccpPath, "utf8");
 
   const ccp = JSON.parse(contents);
-  console.log(`DLTClient buildCCP :: Loaded the network configuration`);
+  console.info(`DLTClient buildCCP :: Loaded the network configuration`);
 
   return ccp;
 };
@@ -69,7 +69,7 @@ const buildCCP = () => {
 export const getContract = async (contractName: string) => {
   if (fabricChannelNetwork == null) {
     if (fabricGateway == null) {
-      console.log(`DLTClient getContract :: Initiate connection to DLT ${contractName}`);
+      console.info(`DLTClient getContract :: Initiate connection to DLT ${contractName}`);
       const walletPath = path.resolve(process.env.USER_WALLET_PATH ? process.env.USER_WALLET_PATH : "");
       const wallet = await ccpUtil.buildWallet(walletPath);
 
@@ -77,12 +77,12 @@ export const getContract = async (contractName: string) => {
       fabricGateway = await initDLTClient(wallet, commonConnectionProfile);
 
       if (!fabricGateway) {
-        console.log(`DLTClient getContract :: Unable to initialize dltClientGateway ${contractName}`);
+        console.info(`DLTClient getContract :: Unable to initialize dltClientGateway ${contractName}`);
 
         throw new Error("DltClient: Unable to initialize dltClientGateway");
       }
 
-      console.log(`DLTClient getContract :: Connected to DLT for contractName ${contractName}`);
+      console.info(`DLTClient getContract :: Connected to DLT for contractName ${contractName}`);
     }
 
     fabricChannelNetwork = await fabricGateway.getNetwork(
@@ -116,10 +116,10 @@ export const invokeForOrganization = async (
   transientData: any = null
 ) => {
   const contract: Contract = await getContract(contractName);
-  console.log(`DLTClient invokeForOrganization :: Processing is started on DLT layer for contractName ${contractName}`);
+  console.info(`DLTClient invokeForOrganization :: Processing is started on DLT layer for contractName ${contractName}`);
   const transaction = contract.createTransaction(functionName);
   if (transientData) {
-    console.log(`DLTClient invokeForOrganization :: Set transient data that will be passed to the transaction function for contractName ${contractName}`);
+    console.info(`DLTClient invokeForOrganization :: Set transient data that will be passed to the transaction function for contractName ${contractName}`);
     transaction.setTransient(transientData);
   }
   transaction.setEndorsingOrganizations(...endorsingOrgs);

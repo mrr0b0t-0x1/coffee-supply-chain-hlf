@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "start": "ENV_PATH=.env && node dist/api/server.js",
     "build": "tsc && copyfiles -f ./network-config/ccp-template.json dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

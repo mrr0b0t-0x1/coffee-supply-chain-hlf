@@ -34,6 +34,8 @@ func (fc *FarmerContract) CreateBatch(ctx contractapi.TransactionContextInterfac
 		return false, fmt.Errorf("failed to unmarshal JSON: %s", err)
 	}
 
+	batch.TxnID = txnID
+
 	err = utils.PutState(ctx, batchID, batch)
 	if err != nil {
 		return false, fmt.Errorf("error while creating batch. BatchId: %s, error: %w", batchID, err)

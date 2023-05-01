@@ -3,18 +3,12 @@ export interface GrowBatch {
   batchStatus: string;
   seedType: string;
   plantationDate: string;
-  harvestDate: string;
   farmerName: string;
-  farmerAddress: string;
-  farmerContact: number;
   growingChargePerKg: number;
   batchGenerationDate: string;
   batchWeight: number;
   batchPrice: number;
   batchSellDate: string;
-  processorName: string;
-  processorAddress: string;
-  processorContact: number;
 }
 
 export interface ProcessBatch {
@@ -23,8 +17,6 @@ export interface ProcessBatch {
   processingType: string;
   dateOfTransport: string;
   farmerName: string;
-  farmerAddress: string;
-  farmerContact: number;
   farmerBatchId: string;
   batchPurchaseDate: string;
   batchPurchasePrice: number;
@@ -37,9 +29,6 @@ export interface ProcessBatch {
   processedBatchPrice: number;
   processedBatchWeight: number;
   batchSellDate: string;
-  roasterName: string;
-  roasterAddress: string;
-  roasterContact: number;
 }
 
 export interface RoastBatch {
@@ -48,8 +37,6 @@ export interface RoastBatch {
   roasingType: string;
   dateOfTransport: string;
   processorName: string;
-  processorAddress: string;
-  processorContact: number;
   processorBatchId: string;
   batchPurchaseDate: string;
   batchPurchasePrice: number;
@@ -63,9 +50,6 @@ export interface RoastBatch {
   roastedBatchPrice: number;
   roastedBatchWeight: number;
   batchSellDate: string;
-  supplierName: string;
-  supplierAddress: string;
-  supplierContact: number;
 }
 
 export interface SupplyBatch {
@@ -73,8 +57,6 @@ export interface SupplyBatch {
   batchStatus: string;
   dateOfTransport: string;
   roasterName: string;
-  roasterAddress: string;
-  roasterContact: number;
   roasterBatchId: string;
   batchPurchaseDate: string;
   batchPurchasePrice: number;
@@ -90,9 +72,6 @@ export interface SupplyBatch {
   shippingChargePerKg: number;
   shippingBatchPrice: number;
   batchSellDate: string;
-  retailerName: string;
-  retailerAddress: string;
-  retailerContact: number;
 }
 
 export interface RetailBatch {
@@ -100,8 +79,6 @@ export interface RetailBatch {
   batchStatus: string;
   dateOfShipping: string;
   supplierName: string;
-  supplierAddress: string;
-  supplierContact: number;
   supplierBatchId: string;
   batchPurchaseDate: string;
   batchPurchasePrice: number;
