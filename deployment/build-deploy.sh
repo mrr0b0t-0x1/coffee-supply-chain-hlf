@@ -1,17 +1,13 @@
 #!/bin/bash
 
-cd ..
-ls -la
-exit
-cd adapter
+printf "\nBuilding...\n"
 
-printf "\nCompiling code...\n"
-npm run build
+cd ../adapter
 
-printf "Compilation done! Building image...\n\n"
-DOCKER_BUILDKIT=1 docker build -f deployment/Dockerfile -t coffee-supply-chain .
+./build.sh
 
-printf "\nImage built! Starting all components...\n\n"
+printf "\nDeploying...\n"
+
 cd ../deployment
 ./start_all_component.sh
 
